@@ -1,0 +1,196 @@
+body {
+    position: relative;
+
+    header {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        height: 40px;
+        width: 60px;
+
+        #hamburgerContainer {
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            @include center;
+            flex-direction: column;
+            justify-content: space-between;
+
+            span {
+                background: white;
+                height: 15%;
+                width: 100%;
+                border-radius: 10px;
+                position: relative;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .toggleHamburger {
+            position: relative;
+            transition: .5s ease-in-out;
+
+            >span {
+                position: absolute;
+            }
+
+            span:nth-child(1) {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            span:nth-child(2) {
+                display: none;
+            }
+
+            span:nth-child(3) {
+                top: -50%;
+                left: -50%;
+                transform: translate(50%, 50%) rotate(-45deg);
+            }
+
+            &:hover {
+                transform: rotate(-15deg);
+            }
+        }
+    }
+
+
+    .counter-container {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 25% 75%;
+        grid-template-areas: 'infos''count';
+
+        .top {
+            grid-area: infos;
+            @include center;
+            flex-direction: column;
+
+            h3 {
+                color: $color-1;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            form {
+                @include center;
+                width: 40%;
+                display: grid;
+                grid-template-columns: 60% 20% 20%;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: 'number submit stop''reset reset stop';
+                row-gap: 5px;
+
+                input,
+                button {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    padding: 15px 30px;
+                }
+
+                input[type="number"] {
+                    grid-area: number;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    color: $color-2;
+                    resize: none;
+                    font-weight: bold;
+                    font-family: $font-1, serif;
+                    background: $color-1;
+                    text-align: center;
+                    transition: .5s;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                input[type="submit"] {
+                    grid-area: submit;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    @include center;
+                    background: $color-2;
+                    color: $color-3;
+                    font-weight: 900;
+
+                    &:hover {
+                        cursor: pointer;
+                        animation: 2s goAnim ease-in-out infinite;
+                    }
+                }
+
+                #stopCountDown {
+                    grid-area: stop;
+                    background: $color-2;
+                    font-size: 2rem;
+                    margin-left: 5px;
+                    padding: 0;
+                    color: $color-3;
+                    transition: .5s;
+
+                    &:hover {
+                        cursor: pointer;
+                        animation: 2s goAnim ease-in-out infinite;
+                    }
+
+                    #stopIcon {
+                        display: none;
+                    }
+                }
+
+                #reset {
+                    grid-area: reset;
+                    font-family: $font-1;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: $color-3;
+                    background: $color-2;
+
+                    &:hover {
+                        cursor: pointer;
+                        animation: 2s goAnim ease-in-out infinite;
+                    }
+                }
+
+                @keyframes goAnim {
+                    50% {
+                        background: $color-3;
+                        color: $color-2;
+                    }
+
+                    100% {
+                        background: $color-2;
+                        color: $color-3;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            grid-area: count;
+            @include center;
+
+            #countdownDisplay {
+                margin-bottom: 25vh;
+                font-size: 4rem;
+                color: $color-1;
+                font-family: $font-2, serif;
+
+                .yellow-colon {
+                    color: $color-2;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

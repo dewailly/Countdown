@@ -1,0 +1,314 @@
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Orbitron-VariableFont_wght';
+  src: url(../fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Poppins-Medium, serif;
+  height: 100vh;
+  text-align: center;
+  background: #ff0084;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#33001b), to(#ff0084));
+  background: linear-gradient(to right, #33001b, #ff0084);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+  position: relative;
+}
+
+body header {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: 40px;
+  width: 60px;
+}
+
+body header #hamburgerContainer {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body header #hamburgerContainer span {
+  background: white;
+  height: 15%;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+
+body header #hamburgerContainer:hover {
+  cursor: pointer;
+}
+
+body header .toggleHamburger {
+  position: relative;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+body header .toggleHamburger > span {
+  position: absolute;
+}
+
+body header .toggleHamburger span:nth-child(1) {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+body header .toggleHamburger span:nth-child(2) {
+  display: none;
+}
+
+body header .toggleHamburger span:nth-child(3) {
+  top: -50%;
+  left: -50%;
+  -webkit-transform: translate(50%, 50%) rotate(-45deg);
+          transform: translate(50%, 50%) rotate(-45deg);
+}
+
+body header .toggleHamburger:hover {
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+}
+
+body .counter-container {
+  display: -ms-grid;
+  display: grid;
+  height: 100%;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 25% 75%;
+      grid-template-rows: 25% 75%;
+      grid-template-areas: "infos" "count";
+}
+
+body .counter-container .top {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: infos;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .counter-container .top h3 {
+  color: #FFF;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 15px;
+}
+
+body .counter-container .top form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 20% 20%;
+      grid-template-columns: 60% 20% 20%;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "number submit stop" "reset reset stop";
+  row-gap: 5px;
+}
+
+body .counter-container .top form input,
+body .counter-container .top form button {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 15px 30px;
+}
+
+body .counter-container .top form input[type="number"] {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: number;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  color: #33001b;
+  resize: none;
+  font-weight: bold;
+  font-family: Poppins-Medium, serif;
+  background: #FFF;
+  text-align: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body .counter-container .top form input[type="number"]:focus {
+  outline: none;
+}
+
+body .counter-container .top form input[type="submit"] {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: submit;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #33001b;
+  color: #ff0084;
+  font-weight: 900;
+}
+
+body .counter-container .top form input[type="submit"]:hover {
+  cursor: pointer;
+  -webkit-animation: 2s goAnim ease-in-out infinite;
+          animation: 2s goAnim ease-in-out infinite;
+}
+
+body .counter-container .top form #stopCountDown {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: stop;
+  background: #33001b;
+  font-size: 2rem;
+  margin-left: 5px;
+  padding: 0;
+  color: #ff0084;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body .counter-container .top form #stopCountDown:hover {
+  cursor: pointer;
+  -webkit-animation: 2s goAnim ease-in-out infinite;
+          animation: 2s goAnim ease-in-out infinite;
+}
+
+body .counter-container .top form #stopCountDown #stopIcon {
+  display: none;
+}
+
+body .counter-container .top form #reset {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: reset;
+  font-family: Poppins-Medium;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ff0084;
+  background: #33001b;
+}
+
+body .counter-container .top form #reset:hover {
+  cursor: pointer;
+  -webkit-animation: 2s goAnim ease-in-out infinite;
+          animation: 2s goAnim ease-in-out infinite;
+}
+
+@-webkit-keyframes goAnim {
+  50% {
+    background: #ff0084;
+    color: #33001b;
+  }
+  100% {
+    background: #33001b;
+    color: #ff0084;
+  }
+}
+
+@keyframes goAnim {
+  50% {
+    background: #ff0084;
+    color: #33001b;
+  }
+  100% {
+    background: #33001b;
+    color: #ff0084;
+  }
+}
+
+body .counter-container .bottom {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: count;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .counter-container .bottom #countdownDisplay {
+  margin-bottom: 25vh;
+  font-size: 4rem;
+  color: #FFF;
+  font-family: Orbitron-VariableFont_wght, serif;
+}
+
+body .counter-container .bottom #countdownDisplay .yellow-colon {
+  color: #33001b;
+  font-weight: bold;
+}
+/*# sourceMappingURL=index.css.map */
