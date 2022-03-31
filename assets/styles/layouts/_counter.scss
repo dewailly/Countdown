@@ -7,6 +7,7 @@ body {
         left: 30px;
         height: 40px;
         width: 60px;
+        z-index: 1000;
 
         #hamburgerContainer {
             width: 100%;
@@ -32,7 +33,6 @@ body {
 
         .toggleHamburger {
             position: relative;
-            transition: .5s ease-in-out;
 
             >span {
                 position: absolute;
@@ -53,11 +53,92 @@ body {
                 left: -50%;
                 transform: translate(50%, 50%) rotate(-45deg);
             }
+        }
+    }
 
-            &:hover {
-                transform: rotate(-15deg);
+    nav {
+        position: absolute;
+        height: 100%;
+        max-width: 300px;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $color-2;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        left: -25%;
+        transition: 1s ease-out;
+
+        .navigation-content {
+            height: 50%;
+
+            ul {
+                height: 100%;
+                @include center;
+                flex-direction: column;
+                justify-content: space-around;
+
+                div {
+                    width: 100%;
+                    position: relative;
+                    padding: 10px;
+
+                    li {
+                        list-style-type: none;
+    
+                        i {
+                            display: block;
+                            color: $color-1;
+                            margin-bottom: 10px;
+                        }
+                        
+                        a {
+                            text-decoration: none;
+                            color: $color-1;
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        &::before {
+                            width: 100%;
+                        }
+
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        transition: .5s ease-in-out;
+                        width: 0%;
+                        height: 2px;
+                        top: 0px;
+                        right: 0;
+                        background: $color-1;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        transition: .5s ease-in-out;
+                        width: 0%;
+                        height: 2px;
+                        bottom: 0px;
+                        left: 0;
+                        background: $color-1;
+                    }
+                }
             }
         }
+    }
+
+    .navAnim {
+        left: 0;
     }
 
 
@@ -192,5 +273,68 @@ body {
                 }
             }
         }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        header {
+            height: 20px;
+            width: 30px;
+            top: 15px;
+            left: 15px;
+        }
+
+        nav {
+            width: 100%;
+            left: -100%;
+            max-width: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .counter-container {
+            grid-template-rows: 35% 65%;
+
+            .top {
+
+                h3 {
+                    margin-bottom: 0;
+                    font-size: 1rem;
+                }
+
+                #form {
+                    display: flex;
+                    flex-direction: column;
+        
+                    input, button {
+                        border-radius: 10px;
+                    }
+        
+                    #stopCountDown {
+                        margin: 0;
+                        padding: 7px 0;
+                        display: none;
+                    }
+
+                    .stopCountDownDisplay {
+                        display: block!important;
+                    }
+                }
+            }
+            
+            .bottom {
+                #countdownDisplay {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body .counter-container .bottom #countdownDisplay {
+        font-size: 2rem;
     }
 }

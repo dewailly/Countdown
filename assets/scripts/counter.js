@@ -30,24 +30,22 @@ const counter = () => {
   }
 };
 
-
 // --------------------------------------------------------------------------
 // ----------------------------------HAMBURGER-------------------------------
 // --------------------------------------------------------------------------
 
-
-hamburgerContainer.addEventListener('click', () => {
-  hamburgerContainer.classList.toggle('toggleHamburger');
+hamburgerContainer.addEventListener("click", () => {
+  hamburgerContainer.classList.toggle("toggleHamburger");
+  nav.classList.toggle("navAnim");
 });
-
 
 // --------------------------------------------------------------------------
 // ----------------------------------MAIN PAGE-------------------------------
 // --------------------------------------------------------------------------
 
-
 start.addEventListener("click", (e) => {
   e.preventDefault();
+  stopCountDown.classList.add("stopCountDownDisplay");
   if (goChecked === false && stopChecked === false) {
     chosenTime = choice.value;
     time.h = Math.floor(chosenTime / 60);
@@ -82,4 +80,8 @@ stopCountDown.addEventListener("click", (e) => {
     document.getElementById("playIcon").style.display = "block";
     counter();
   }
+});
+
+reset.addEventListener("click", (e) => {
+  e.preventDefault = false;
 });
